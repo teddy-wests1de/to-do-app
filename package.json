@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "parcel": "^2.0.0-rc.0"
+  },
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elrico Landrew",
+  "license": "ISC",
+  "description": ""
+}

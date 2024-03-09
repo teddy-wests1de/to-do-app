@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    
+    <link rel="stylesheet" href="/index.8e0184e2.css">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <p class="app-name">TO DO LIST</p>
+            <p class="app-description">Create your list.</p>
+          </header>
+        <div class="new-task-modal hidden">
+          <div class="form close-form"><button class="btn-close-form">x</button></div>
+          <form class="form new-task-form">
+            <h3 class="form-title">New Task</h3>
+            <input type="text" class="new-item" id="new-item">
+            <button type="submit">Submit</button>
+          </form>
+          <form class="form new-category-form hidden">
+            <h3 class="form-title">New Task</h3>
+            <input type="text" class="new-item" id="new-item">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="main">
+          <ul class="menu">
+            <li><a class="nav-link" href="#task-list">Task List</a></li>
+            <li><a class="nav-link" href="#history">History</a></li>
+            <li><a class="nav-link" href="#categories">Categories</a></li>
+          </ul>
+          <div class="section task-list" id="task-list">
+            <div class="new-task"><button class="task-btn add-new">New Task</button></div>
+            <ul class="tasks">
+              <li class="task-item">
+                <span class="status">ON</span>
+                <span class="status">Staff Meeting</span>
+                <span class="status">08 March 2024</span>
+              <span class="status">12:00-PM</span>
+              </li>
+              <li class="task-item">
+                <span class="status">OF</span>
+                <span class="status">Staff Meeting</span>
+                <span class="status">10 March 2024</span>
+              <span class="status">11:00-PM</span>
+              </li>
+              <li class="task-item">
+                <span class="status">OF</span>
+                <span class="status">Staff Meeting</span>
+                <span class="status">13 March 2024</span>
+              <span class="status">10:00-PM</span>
+              </li>
+            </ul>
+          </div>
+          <div class="section history hidden" id="history">
+            <div class="new-task"><button class="task-btn">Clear History</button></div>
+            <ul class="history-list">
+              <li class="task-item">
+                <span class="status">OF</span>
+                <span class="status">Staff Meeting</span>
+                <span class="status">10 March 2024</span>
+                <span class="status">11:00-PM</span>
+              </li>
+            </ul>
+          </div>
+          <div class="section categories hidden" id="categories">
+            <div class="new-category"><button class="task-btn">New Category</button></div>
+            <div class="category-list">
+                <div class="category-card">
+                    <h3 class="category-title">Work</h3>
+                    <p class="category-description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
+                    </p>
+                </div>
+                <div class="category-card">
+                    <h3 class="category-title">Work</h3>
+                    <p class="category-description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
+                    </p>
+                </div>
+                <div class="category-card">
+                    <h3 class="category-title">Work</h3>
+                    <p class="category-description">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
+                    </p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer"><div class="attribution">Designed By: CSD - Copyright &copy; 2024</div></footer>
+      </div>
+      <script src="/index.849b6a7f.js" defer=""></script>
+</body>
+</html>
