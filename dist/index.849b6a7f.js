@@ -140,9 +140,9 @@
       this[globalName] = mainExports;
     }
   }
-})({"1Osjd":[function(require,module,exports) {
+})({"gVYUb":[function(require,module,exports) {
 var HMR_HOST = null;
-var HMR_PORT = null;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "69f74e7f31319ffd";
 module.bundle.HMR_BUNDLE_ID = "ed62dd24849b6a7f";
@@ -465,24 +465,25 @@ const forms = document.querySelectorAll('.form');
 const newTaskForm = document.querySelector('.new-task-form');
 const newItem = document.querySelector('.new-item');
 const tasks = document.querySelector('.tasks');
+const historyList = document.querySelector('.history-list');
 const itemList = [
     {
         name: 'Work',
-        checked: true,
         date: '14 March 2024',
-        time: '10:00'
+        time: '10:00',
+        checked: false
     },
     {
         name: 'Study',
-        checked: false,
         date: '14 March 2024',
-        time: '19:00'
+        time: '19:00',
+        checked: false
     },
     {
         name: 'Running',
-        checked: true,
         date: '15 March 2024',
-        time: '12:00'
+        time: '12:00',
+        checked: true
     }
 ];
 const history = [];
@@ -508,29 +509,48 @@ menu.addEventListener('click', function(e) {
     document.querySelector(`.${id}`).classList.remove('hidden');
     console.log(id);
 });
+tasks.addEventListener('click', function(e) {
+    const checkBox = e.target.closest('.check-status');
+    const itemName = e.target.parentElement.querySelector('.item-name').innerHTML;
+    checkBox.checked ? checkBox.dataset.status = 'completed' : checkBox.dataset.status = 'new';
+    const index = itemList.findIndex((item)=>item.name === itemName
+    );
+    console.log(itemList[index]);
+    const removeItem = itemList.splice(index, 1);
+    renderList(itemList, tasks);
+    history.push(...removeItem);
+    console.log(history);
+    renderList(history, historyList);
+});
+// tasks.forEach(task => {
+//   task.addEventListener('click', function(e) {
+//     console.log(e.target);
+//   })
+// })
 const addItem = function(name, date, time, checked = false) {
     const item = {
         name: name,
-        checked: checked,
         date: date,
-        time: time
+        time: time,
+        checked: checked
     };
     itemList.push(item);
 };
 newTaskForm.addEventListener('submit', function(e) {
     e.preventDefault();
     addItem(newItem.value, '15 March 2024', '10:00');
-    renderList(itemList);
+    renderList(itemList, tasks);
 });
-const renderList = function(array) {
-    tasks.innerHTML = '';
+const renderList = function(array, parent) {
+    parent.innerHTML = '';
     array.map((item)=>{
-        const html = `\n       <li class="task-item">\n           <span class="status">ON</span>\n           <span class="status">${item.name}</span>\n           <span class="status">${item.date}</span>\n         <span class="status">${item.time}</span>\n       </li>\n    `;
-        tasks.insertAdjacentHTML('beforeend', html);
+        const html = `\n       <li class="task-item">\n          <input type="checkbox" value="${item.checked}" id="status" data-status="new" class="check-status">\n          <span class="item-name">${item.name}</span>\n          <span class="item-date">${item.date}</span>\n          <span class="item-time">${item.time}</span>\n       </li>\n    `;
+        parent.insertAdjacentHTML('beforeend', html);
     });
 };
-renderList(itemList);
+renderList(itemList, tasks);
+renderList(history, historyList);
 
-},{}]},["1Osjd","eoBgn"], "eoBgn", "parcelRequiree5c7")
+},{}]},["gVYUb","eoBgn"], "eoBgn", "parcelRequiree5c7")
 
 //# sourceMappingURL=index.849b6a7f.js.map

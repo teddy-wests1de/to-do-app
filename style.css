@@ -150,7 +150,7 @@ button:hover {
   justify-content: space-between;
   gap: 1rem;
   border: 1px solid black;
-  border-left: 5px solid rgb(231, 46, 46);
+  border-left: 5px solid rgb(5, 63, 224);
   background-color: #fff;
   border-radius: 4px;
   padding: .5rem;
@@ -162,6 +162,7 @@ button:hover {
     gap: .5rem;
     width: 100%;
 }
+
 .category-card {
   flex: 1;
     min-width: 185px;

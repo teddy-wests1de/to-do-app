@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TO DO LIST</title>
-    
+    <script src="https://kit.fontawesome.com/3e535f31b0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     
 </head>
@@ -37,19 +37,19 @@
             <div class="new-task"><button class="task-btn add-new">New Task</button></div>
             <ul class="tasks">
               <li class="task-item">
-                <span class="status">ON</span>
+                <input type="checkbox" name="status" data-status="new">
                 <span class="status">Staff Meeting</span>
                 <span class="status">08 March 2024</span>
               <span class="status">12:00-PM</span>
               </li>
               <li class="task-item">
-                <span class="status">OF</span>
+                <!-- <input type="checkbox" name="status" id="status"> -->
                 <span class="status">Staff Meeting</span>
                 <span class="status">10 March 2024</span>
               <span class="status">11:00-PM</span>
               </li>
               <li class="task-item">
-                <span class="status">OF</span>
+                <!-- <input type="checkbox" name="status" id="status"> -->
                 <span class="status">Staff Meeting</span>
                 <span class="status">13 March 2024</span>
               <span class="status">10:00-PM</span>
@@ -57,11 +57,11 @@
             </ul>
           </div>
           <div class="section history hidden" id="history">
-            <div class="new-task"><button class="task-btn">Clear History</button></div>
+            <div class="new-task"><button class="task-btn btn-clear-history">Clear History</button></div>
             <ul class="history-list">
               <li class="task-item">
-                <span class="status">OF</span>
-                <span class="status">Staff Meeting</span>
+                <span class="status"><i class="fa-regular fa-square-check"></i></span>
+                <span class="status">Staffing Meeting</span>
                 <span class="status">10 March 2024</span>
                 <span class="status">11:00-PM</span>
               </li>
@@ -71,7 +71,7 @@
             <div class="new-category"><button class="task-btn">New Category</button></div>
             <div class="category-list">
                 <div class="category-card">
-                    <h3 class="category-title">Work</h3>
+                    <h3 class="category-title">Working...!</h3>
                     <p class="category-description">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
                     </p>
@@ -93,6 +93,6 @@
         </div>
         <footer class="footer"><div class="attribution">Designed By: CSD - Copyright &copy; 2024</div></footer>
       </div>
-      <script type="module" src="script.js" defer></script>
+      <script type="module" src="js/script.js" defer></script>
 </body>
 </html>

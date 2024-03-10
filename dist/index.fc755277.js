@@ -140,12 +140,12 @@
       this[globalName] = mainExports;
     }
   }
-})({"hDMVF":[function(require,module,exports) {
+})({"jnXTY":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "4e5dac8afe405db7";
-module.bundle.HMR_BUNDLE_ID = "b732b4266ba49e6c";
+var HMR_ENV_HASH = "69f74e7f31319ffd";
+module.bundle.HMR_BUNDLE_ID = "e39cd120fc755277";
 "use strict";
 function _createForOfIteratorHelper(o, allowArrayLike) {
     var it;
@@ -454,7 +454,8 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}]},["hDMVF"], null, "parcelRequiree5c7")
+},{}],"hYC5h":[function(require,module,exports) {
+var _modelJs = require("./model.js");
 const menu = document.querySelector('.menu');
 const btnNewTask = document.querySelector('.add-new');
 const btnNewCategory = document.querySelector('.new-category button');
@@ -465,30 +466,37 @@ const forms = document.querySelectorAll('.form');
 const newTaskForm = document.querySelector('.new-task-form');
 const newItem = document.querySelector('.new-item');
 const tasks = document.querySelector('.tasks');
+const historyList = document.querySelector('.history-list');
+const btnClearHistory = document.querySelector('.btn-clear-history');
 const itemList = [
     {
         name: 'Work',
-        checked: true,
         date: '14 March 2024',
-        time: '10:00'
+        time: '10:00',
+        checked: false
     },
     {
         name: 'Study',
-        checked: false,
         date: '14 March 2024',
-        time: '19:00'
+        time: '19:00',
+        checked: false
     },
     {
         name: 'Running',
-        checked: true,
         date: '15 March 2024',
-        time: '12:00'
+        time: '12:00',
+        checked: true
     }
 ];
 const history = [];
 const categories = [];
 btnNewTask.addEventListener('click', function() {
     newTaskModal.classList.remove('hidden');
+});
+btnClearHistory.addEventListener('click', function() {
+    _modelJs.clearHistory();
+    renderList(_modelJs.state.taskHistory, historyList);
+    console.log(_modelJs.state.taskHistory);
 });
 btnCloseForm.addEventListener('click', function() {
     newTaskModal.classList.add('hidden');
@@ -508,27 +516,116 @@ menu.addEventListener('click', function(e) {
     document.querySelector(`.${id}`).classList.remove('hidden');
     console.log(id);
 });
+tasks.addEventListener('click', function(e) {
+    const checkBox = e.target.closest('.check-status');
+    const itemName = e.target.parentElement.querySelector('.item-name').innerHTML;
+    checkBox.checked ? checkBox.dataset.status = 'completed' : checkBox.dataset.status = 'new';
+    const index = _modelJs.state.taskList.findIndex((item)=>item.name === itemName
+    );
+    console.log(_modelJs.state.taskList[index]);
+    const removeItem = _modelJs.state.taskList.splice(index, 1);
+    renderList(_modelJs.state.taskList, tasks);
+    _modelJs.state.taskHistory.push(...removeItem);
+    console.log(_modelJs.state.taskHistory);
+    renderList(_modelJs.state.taskHistory, historyList);
+    _modelJs.save();
+    console.log(_modelJs.state.taskList);
+});
+// tasks.forEach(task => {
+//   task.addEventListener('click', function(e) {
+//     console.log(e.target);
+//   })
+// })
 const addItem = function(name, date, time, checked = false) {
     const item = {
         name: name,
-        checked: checked,
         date: date,
-        time: time
+        time: time,
+        checked: checked
     };
-    itemList.push(item);
+    _modelJs.state.taskList.push(item);
+    _modelJs.save();
 };
 newTaskForm.addEventListener('submit', function(e) {
     e.preventDefault();
     addItem(newItem.value, '15 March 2024', '10:00');
-    renderList(itemList);
+    renderList(_modelJs.state.taskList, tasks);
 });
-const renderList = function(array) {
-    tasks.innerHTML = '';
+const renderList = function(array, parent) {
+    parent.innerHTML = '';
     array.map((item)=>{
-        const html = `\n       <li class="task-item">\n           <span class="status">ON</span>\n           <span class="status">${item.name}</span>\n           <span class="status">${item.date}</span>\n         <span class="status">${item.time}</span>\n       </li>\n    `;
-        tasks.insertAdjacentHTML('beforeend', html);
+        const html = `\n       <li class="task-item">\n          <input type="checkbox" value="${item.checked}" id="status" data-status="new" class="check-status">\n          <span class="item-name">${item.name}</span>\n          <span class="item-date">${item.date}</span>\n          <span class="item-time">${item.time}</span>\n       </li>\n    `;
+        parent.insertAdjacentHTML('beforeend', html);
     });
 };
-renderList(itemList);
+renderList(_modelJs.state.taskList, tasks);
+renderList(_modelJs.state.taskHistory, historyList);
 
-//# sourceMappingURL=index.6ba49e6c.js.map
+},{"./model.js":"7gFI5"}],"7gFI5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state
+);
+parcelHelpers.export(exports, "save", ()=>save
+);
+parcelHelpers.export(exports, "clearHistory", ()=>clearHistory
+);
+const state = {
+    taskList: [],
+    taskHistory: []
+};
+const saveTasks = function() {
+    localStorage.setItem('tasks', JSON.stringify(state.taskList));
+    localStorage.setItem('history', JSON.stringify(state.taskHistory));
+};
+const init = function() {
+    const taskData = localStorage.getItem('tasks');
+    if (taskData) state.taskList = JSON.parse(taskData);
+    const historyData = localStorage.getItem('history');
+    if (historyData) state.taskHistory = JSON.parse(historyData);
+};
+const save = function() {
+    localStorage.clear();
+    saveTasks();
+};
+const clearHistory = function() {
+    localStorage.removeItem('history');
+    init();
+};
+init();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"JacNc":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule') return;
+        // Skip duplicate re-exports when they have the same value.
+        if (key in dest && dest[key] === source[key]) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["jnXTY","hYC5h"], "hYC5h", "parcelRequiree5c7")
+
+//# sourceMappingURL=index.fc755277.js.map
