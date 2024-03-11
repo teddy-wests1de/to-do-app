@@ -12,6 +12,7 @@ const newItem = document.querySelector('.new-item');
 const tasks = document.querySelector('.tasks');
 const historyList = document.querySelector('.history-list');
 const btnClearHistory = document.querySelector('.btn-clear-history');
+const categoryList = document.querySelector('.category-list');
 
 const itemList = [
   {
@@ -67,35 +68,35 @@ menu.addEventListener('click', function(e) {
   console.log(id);
 })
 
-tasks.addEventListener('click', function(e) {
+tasks.addEventListener('change', function(e) {
   const checkBox = e.target.closest('.check-status');
   const itemName = e.target.parentElement.querySelector('.item-name').innerHTML;
-  checkBox.checked ? checkBox.dataset.status = 'completed' : checkBox.dataset.status = 'new';
-
-  const index = model.state.taskList.findIndex(item => item.name === itemName);
-  console.log(model.state.taskList[index]);
-  const removeItem = model.state.taskList.splice(index, 1);
-  renderList(model.state.taskList, tasks);
-
-  model.state.taskHistory.push(...removeItem);
-  console.log(model.state.taskHistory);
-  renderList(model.state.taskHistory, historyList);
-  model.save();
-  console.log(model.state.taskList);
+  checkBox.checked ?  markComplete(itemName) : checkBox.dataset.status = 'new';
+  
 })
 
-// tasks.forEach(task => {
-//   task.addEventListener('click', function(e) {
-//     console.log(e.target);
-//   })
-// })
+const markComplete = function(itemName) {
+  // Find index of clicked checkbox from e.target
+  const index = model.state.taskList.findIndex(item => item.name === itemName);
+  // Use index to remove from tasks list.
+  model.state.taskList[index].checked = 'checked';
 
-const addItem = function(name, date, time, checked=false) {
+  const removeItem = model.state.taskList.splice(index, 1);
+  // Add to removed Item to history list
+  model.state.taskHistory.push(...removeItem);
+  
+  renderList(model.state.taskHistory, historyList);
+  renderList(model.state.taskList, tasks);
+  model.save();
+  // console.log(model.state.taskList);
+}
+
+const addItem = function(name, date, time, checked='') {
   const item = {
     name: name,
     date: date,
     time: time,
-    checked: checked,
+    checked,
   }
   
   model.state.taskList.push(item);
@@ -108,12 +109,27 @@ newTaskForm.addEventListener('submit', function(e) {
   renderList(model.state.taskList, tasks);
 })
 
+const renderCategories = function(categories) {
+  categoryList.innerHTML = '';
+  categories.map(category => {
+    const html = `
+      <div class="category-card">
+        <h3 class="category-title">${category.name}</h3>
+        <p class="category-description">
+            ${category.description}
+        </p>
+      </div>
+    `;
+    categoryList.insertAdjacentHTML('beforeend', html);
+  })
+}
+
 const renderList = function(array, parent) {
   parent.innerHTML = '';
   array.map(item => {
     const html = `
-       <li class="task-item">
-          <input type="checkbox" value="${item.checked}" id="status" data-status="new" class="check-status">
+       <li class="task-item" data-color="">
+          <input type="checkbox" value="${item.checked}" id="status" data-status="new" class="check-status" ${item.checked}>
           <span class="item-name">${item.name}</span>
           <span class="item-date">${item.date}</span>
           <span class="item-time">${item.time}</span>
@@ -124,3 +140,4 @@ const renderList = function(array, parent) {
 }
 renderList(model.state.taskList, tasks);
 renderList(model.state.taskHistory, historyList);
+renderCategories(model.state.categories);

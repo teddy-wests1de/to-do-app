@@ -1,6 +1,32 @@
 export const state = {
     taskList: [],
     taskHistory: [],
+    categories: [
+        {
+            id: 1,
+            name: 'Work',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'red',
+        },
+        {
+            id: 2,
+            name: 'Studies',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'green',
+        },
+        {
+            id: 3,
+            name: 'Errands',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'blue',
+        },
+        {
+            id: 1,
+            name: 'Hobbies',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'orange',
+        },
+    ],
 }
 
 const saveTasks = function() {

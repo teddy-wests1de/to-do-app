@@ -468,6 +468,7 @@ const newItem = document.querySelector('.new-item');
 const tasks = document.querySelector('.tasks');
 const historyList = document.querySelector('.history-list');
 const btnClearHistory = document.querySelector('.btn-clear-history');
+const categoryList = document.querySelector('.category-list');
 const itemList = [
     {
         name: 'Work',
@@ -516,32 +517,31 @@ menu.addEventListener('click', function(e) {
     document.querySelector(`.${id}`).classList.remove('hidden');
     console.log(id);
 });
-tasks.addEventListener('click', function(e) {
+tasks.addEventListener('change', function(e) {
     const checkBox = e.target.closest('.check-status');
     const itemName = e.target.parentElement.querySelector('.item-name').innerHTML;
-    checkBox.checked ? checkBox.dataset.status = 'completed' : checkBox.dataset.status = 'new';
+    checkBox.checked ? markComplete(itemName) : checkBox.dataset.status = 'new';
+});
+const markComplete = function(itemName) {
+    // Find index of clicked checkbox from e.target
     const index = _modelJs.state.taskList.findIndex((item)=>item.name === itemName
     );
-    console.log(_modelJs.state.taskList[index]);
+    // Use index to remove from tasks list.
+    _modelJs.state.taskList[index].checked = 'checked';
     const removeItem = _modelJs.state.taskList.splice(index, 1);
-    renderList(_modelJs.state.taskList, tasks);
+    // Add to removed Item to history list
     _modelJs.state.taskHistory.push(...removeItem);
-    console.log(_modelJs.state.taskHistory);
     renderList(_modelJs.state.taskHistory, historyList);
+    renderList(_modelJs.state.taskList, tasks);
     _modelJs.save();
-    console.log(_modelJs.state.taskList);
-});
-// tasks.forEach(task => {
-//   task.addEventListener('click', function(e) {
-//     console.log(e.target);
-//   })
-// })
-const addItem = function(name, date, time, checked = false) {
+// console.log(model.state.taskList);
+};
+const addItem = function(name, date, time, checked = '') {
     const item = {
         name: name,
         date: date,
         time: time,
-        checked: checked
+        checked
     };
     _modelJs.state.taskList.push(item);
     _modelJs.save();
@@ -551,15 +551,23 @@ newTaskForm.addEventListener('submit', function(e) {
     addItem(newItem.value, '15 March 2024', '10:00');
     renderList(_modelJs.state.taskList, tasks);
 });
+const renderCategories = function(categories1) {
+    categoryList.innerHTML = '';
+    categories1.map((category)=>{
+        const html = `\n      <div class="category-card">\n        <h3 class="category-title">${category.name}</h3>\n        <p class="category-description">\n            ${category.description}\n        </p>\n      </div>\n    `;
+        categoryList.insertAdjacentHTML('beforeend', html);
+    });
+};
 const renderList = function(array, parent) {
     parent.innerHTML = '';
     array.map((item)=>{
-        const html = `\n       <li class="task-item">\n          <input type="checkbox" value="${item.checked}" id="status" data-status="new" class="check-status">\n          <span class="item-name">${item.name}</span>\n          <span class="item-date">${item.date}</span>\n          <span class="item-time">${item.time}</span>\n       </li>\n    `;
+        const html = `\n       <li class="task-item" data-color="">\n          <input type="checkbox" value="${item.checked}" id="status" data-status="new" class="check-status" ${item.checked}>\n          <span class="item-name">${item.name}</span>\n          <span class="item-date">${item.date}</span>\n          <span class="item-time">${item.time}</span>\n       </li>\n    `;
         parent.insertAdjacentHTML('beforeend', html);
     });
 };
 renderList(_modelJs.state.taskList, tasks);
 renderList(_modelJs.state.taskHistory, historyList);
+renderCategories(_modelJs.state.categories);
 
 },{"./model.js":"7gFI5"}],"7gFI5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -572,7 +580,33 @@ parcelHelpers.export(exports, "clearHistory", ()=>clearHistory
 );
 const state = {
     taskList: [],
-    taskHistory: []
+    taskHistory: [],
+    categories: [
+        {
+            id: 1,
+            name: 'Work',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'red'
+        },
+        {
+            id: 2,
+            name: 'Studies',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'green'
+        },
+        {
+            id: 3,
+            name: 'Errands',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'blue'
+        },
+        {
+            id: 1,
+            name: 'Hobbies',
+            description: 'Keeping track of all work related tasks at my job',
+            color: 'orange'
+        }, 
+    ]
 };
 const saveTasks = function() {
     localStorage.setItem('tasks', JSON.stringify(state.taskList));
