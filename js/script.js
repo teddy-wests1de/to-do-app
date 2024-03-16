@@ -82,8 +82,6 @@ const newTask = function() {
 }
 
 const manageTasks = function() {
-  addTaskView.addTaskNewItem(newTask);
-
   listTaskView.render(model.state.taskList);
 
 }
@@ -97,12 +95,14 @@ const manageCategories = function() {
 const manageHistory = function() {
   listHistoryView.render(model.state.taskHistory);
 }
+
 const removeAllTasks = function() {
   model.clearTasks();
   listTaskView.render(model.state.taskList);
   console.log(model.state.taskList);
   console.log('Tasks...!')
 }
+
 const init = function() {
   // taskView.render(model.state.taskList);
   manageTasks();
@@ -110,6 +110,9 @@ const init = function() {
   manageHistory();
   
   console.log(model.state.taskList);
-  listTaskView.addHandlerRemove(removeAllTasks);
+  
+  addTaskView.addHandlerNewTask(newTask);
+  listTaskView.addHandlerRemoveAll(removeAllTasks);
+
 }
 init();

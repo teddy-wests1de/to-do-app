@@ -11,7 +11,7 @@ class AddTaskView {
         this.#newItem.value = '';
     }
     
-    addTaskNewItem(handler) {
+    addHandlerNewTask(handler) {
         this.#parentEl.addEventListener('submit', function(e) {
             e.preventDefault();
             handler();

@@ -60,6 +60,7 @@ export const save = function() {
 /* --- Temporary commented out --- */
 // export const clearHistory = function() {
 //     localStorage.removeItem('history');
+//     state.taskHistory = [];
 //     save();
 //     init();
 // }

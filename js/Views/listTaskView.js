@@ -35,9 +35,8 @@ class TaskView {
         })
     }
 
-    addHandlerRemove(handler) {
+    addHandlerRemoveAll(handler) {
         this.#removeTasks.addEventListener('click', handler);
-        
     }
 }
 

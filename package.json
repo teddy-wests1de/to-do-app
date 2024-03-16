@@ -1,0 +1,22 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teddy-wests1de/to-do-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teddy-wests1de/to-do-app/issues"
+  },
+  "homepage": "https://github.com/teddy-wests1de/to-do-app#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0"
+  }
+}
