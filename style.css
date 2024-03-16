@@ -126,6 +126,11 @@ button:hover {
   justify-content: flex-end;
   background-color: #88998800;
 }
+.task-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
 .task-btn {
   all: unset;
   border: 1px solid black;

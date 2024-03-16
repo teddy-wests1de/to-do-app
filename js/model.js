@@ -28,6 +28,17 @@ export const state = {
         },
     ],
 }
+export const addItem = function(name, date, time, checked='') {
+    const item = {
+      name: name,
+      date: date,
+      time: time,
+      checked,
+    }
+    
+    state.taskList.push(item);
+    saveTasks();
+}
 
 const saveTasks = function() {
     localStorage.setItem('tasks', JSON.stringify(state.taskList));
@@ -46,8 +57,17 @@ export const save = function() {
     saveTasks();
 }
 
-export const clearHistory = function() {
-    localStorage.removeItem('history');
+/* --- Temporary commented out --- */
+// export const clearHistory = function() {
+//     localStorage.removeItem('history');
+//     save();
+//     init();
+// }
+
+export const clearTasks = function() {
+    localStorage.removeItem('tasks');
+    state.taskList = [];
+    // save();
     init();
 }
 
