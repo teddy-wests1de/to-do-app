@@ -1,8 +1,8 @@
 class CategoryView {
-    #parentEl = document.querySelector('.category-list');
+    _parentEl = document.querySelector('.category-list');
 
     clear() {
-        this.#parentEl.innerHTML = '';
+        this._parentEl.innerHTML = '';
     }
     render(array) {
         this.clear();
@@ -15,7 +15,7 @@ class CategoryView {
                     </p>
                 </div>
             `;
-        this.#parentEl.insertAdjacentHTML('beforeend', markup);
+        this._parentEl.insertAdjacentHTML('beforeend', markup);
         })
     }
 

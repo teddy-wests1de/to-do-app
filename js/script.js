@@ -55,19 +55,20 @@ menu.addEventListener('click', function(e) {
 
 const markComplete = function(itemName) {
   // Find index of clicked checkbox from e.target
-  const index = model.state.taskList.findIndex(item => item.name === itemName);
-  // Set Checked on clicked item
-  model.state.taskList[index].checked = 'checked';
+  // const index = model.state.taskList.findIndex(item => item.name === itemName);
+  // // Set Checked on clicked item
+  // model.state.taskList[index].checked = 'checked';
   
-  // Use index to remove from tasks list.
-  const removeItem = model.state.taskList.splice(index, 1);
-  // Add removed Item to history list
-  model.state.taskHistory.push(...removeItem);
+  // // Use index to remove from tasks list.
+  // const removeItem = model.state.taskList.splice(index, 1);
+  // // Add removed Item to history list
+  // model.state.taskHistory.push(...removeItem);
   
-  renderList(model.state.taskHistory, historyList);
-  taskView.renderList(model.state.taskList, tasks);
-  model.save();
+  // renderList(model.state.taskHistory, historyList);
+  // taskView.renderList(model.state.taskList, tasks);
+  // model.save();
   // console.log(model.state.taskList);
+  console.log('Checked...!');
 }
 
 const newTask = function() {
@@ -113,6 +114,8 @@ const init = function() {
   
   addTaskView.addHandlerNewTask(newTask);
   listTaskView.addHandlerRemoveAll(removeAllTasks);
+  // listHistoryView.addHandlerClearHistory();
+  listTaskView.addHandlerChecked(markComplete);
 
 }
 init();

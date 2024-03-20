@@ -1,24 +1,37 @@
 class HistoryView {
-    #parentEl = document.querySelector('.history-list');
+    _parentEl = document.querySelector('.history-list');
+    _btnClearHistory = document.querySelector('.btn-clear-history');
 
     clear() {
-        this.#parentEl.innerHTML = '';
+        this._parentEl.innerHTML = '';
     }
 
     render(data) {
         this.clear();
         data.map(item => {
           const html = `
-             <li class="task-item" data-color="">
-                <input type="checkbox" value="${item.checked}" id="status" data-status="new" class="check-status" ${item.checked}>
-                <span class="item-name">${item.name}</span>
-                <span class="item-date">${item.date}</span>
-                <span class="item-time">${item.time}</span>
-             </li>
+        <div class="item" data-id="${item.id}">
+          <div class="left-border"></div>
+          <div class="check-mark"><i class="fa-regular fa-circle-check"></i></div>
+          <div class="item-body">
+            <div class="description">
+              <div class="name">${item.name}</div>
+              <div class="date-time">1/9/81 - 18:00</div>
+            </div>
+            <div class="control-btns">
+              <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>
+              <div class="close"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+          </div>
+        </div>
           `;
-          this.#parentEl.insertAdjacentHTML('beforeend', html);
+          this._parentEl.insertAdjacentHTML('beforeend', html);
         })
     }
+    addHandlerClearHistory(handler) {
+        this._btnClearHistory.addEventListener('click', handler);
+    }
+
 }
 
 export default new HistoryView();

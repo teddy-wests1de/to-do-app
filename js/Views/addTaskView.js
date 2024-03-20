@@ -1,18 +1,18 @@
 class AddTaskView {
-    #parentEl = document.querySelector('.new-task-form');
-    #newItem = document.querySelector('.new-item');
+    _parentEl = document.querySelector('.new-task-form');
+    _newItem = document.querySelector('.new-item');
 
     getItem() {
-        return this.#parentEl.querySelector('.new-item').value;
+        return this._parentEl.querySelector('.new-item').value;
          
     }
 
     clearInput() {
-        this.#newItem.value = '';
+        this._newItem.value = '';
     }
     
     addHandlerNewTask(handler) {
-        this.#parentEl.addEventListener('submit', function(e) {
+        this._parentEl.addEventListener('submit', function(e) {
             e.preventDefault();
             handler();
         })
