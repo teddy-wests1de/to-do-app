@@ -16,7 +16,7 @@ class HistoryView {
           <div class="item-body">
             <div class="description">
               <div class="name">${item.name}</div>
-              <div class="date-time">1/9/81 - 18:00</div>
+              <div class="date-time">${item.date} - ${item.time}</div>
             </div>
             <div class="control-btns">
               <div class="edit"><i class="fa-regular fa-pen-to-square"></i></div>

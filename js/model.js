@@ -28,11 +28,12 @@ export const state = {
         },
     ],
 }
-export const addItem = function(name, date, time, checked='') {
+export const addItem = function(name, date, time, id, checked='') {
     const item = {
       name: name,
       date: date,
       time: time,
+      id: id,
       checked,
     }
     
@@ -58,12 +59,12 @@ export const save = function() {
 }
 
 /* --- Temporary commented out --- */
-// export const clearHistory = function() {
-//     localStorage.removeItem('history');
-//     state.taskHistory = [];
-//     save();
-//     init();
-// }
+export const clearHistory = function() {
+    localStorage.removeItem('history');
+    state.taskHistory = [];
+    save();
+    init();
+}
 
 export const clearTasks = function() {
     localStorage.removeItem('tasks');

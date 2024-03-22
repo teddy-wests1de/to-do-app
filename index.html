@@ -15,16 +15,30 @@
             <p class="app-description">Create your list.</p>
           </header>
         <div class="new-task-modal hidden">
-          <div class="form close-form"><button class="btn-close-form">x</button></div>
-          <form class="form new-task-form">
+          <form class="form new-task-form hidden">
+            <button class="btn-close-form">x</button>
             <h3 class="form-title">New Task</h3>
-            <input type="text" class="new-item" id="new-item">
-            <button type="submit">Submit</button>
+            <p class="form-description">Please enter a task name and category to add a task.</p>
+            <div class="form-controls">
+              <div class="form-field">
+                <label for="new-item">Item Name</label>
+                <input type="text" class="new-item" id="new-item" placeholder="Ex. Send submit Assignmet.">
+              </div>
+              <div class="form-field">
+                <label for="category">Category</label>
+                <input type="text" class="new-item" id="new-item" placeholder="Ex. Studies">
+              </div>
+              <div class="form-field">
+                <button class="task-btn">Cancel</button>
+                <button type="submit" class="task-btn">Submit</button>
+              </div>
+            </div>
           </form>
           <form class="form new-category-form hidden">
-            <h3 class="form-title">New Task</h3>
-            <input type="text" class="new-item" id="new-item">
-            <button type="submit">Submit</button>
+            <h3 class="form-title">New Category</h3>
+            <input type="text" class="new-item" id="new-category">
+            <textarea name="category-description" id="category-description" rows="10"></textarea>
+            <button type="submit" class="task-btn btn-new-category">Submit</button>
           </form>
         </div>
         <div class="main">
@@ -46,7 +60,6 @@
               <span class="status">12:00-PM</span>
               </li>
               <li class="task-item">
-                <!-- <input type="checkbox" name="status" id="status"> -->
                 <span class="status">Staff Meeting</span>
                 <span class="status">10 March 2024</span>
               <span class="status">11:00-PM</span>

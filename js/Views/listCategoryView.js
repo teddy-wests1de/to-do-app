@@ -1,6 +1,8 @@
 class CategoryView {
     _parentEl = document.querySelector('.category-list');
-
+    _btnNewCategory = document.querySelector('.new-category button')
+    _categoryList = document.querySelector('.category-list');
+    
     clear() {
         this._parentEl.innerHTML = '';
     }
@@ -20,6 +22,9 @@ class CategoryView {
     }
 
    
+    addHandlerNewCategory(handler) {
+        this._newCategory.addEventListener('click', handler);
+    }
     // getHtml() {
     //     return `
     //     <div class="category-card">
