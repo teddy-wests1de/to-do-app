@@ -26,19 +26,25 @@
               </div>
               <div class="form-field">
                 <label for="category">Category</label>
-                <input type="text" class="new-item" id="new-item" placeholder="Ex. Studies">
+                <select name="categories" id="categories" class="select-category">
+
+                </select>
               </div>
-              <div class="form-field">
-                <button class="task-btn">Cancel</button>
+              <div class="form-field btn-container">
+                <!-- <button class="task-btn">Cancel</button> -->
                 <button type="submit" class="task-btn">Submit</button>
               </div>
             </div>
           </form>
           <form class="form new-category-form hidden">
+            <button class="btn-close-form">x</button>
             <h3 class="form-title">New Category</h3>
-            <input type="text" class="new-item" id="new-category">
-            <textarea name="category-description" id="category-description" rows="10"></textarea>
-            <button type="submit" class="task-btn btn-new-category">Submit</button>
+            <p class="form-description">Please enter a category name and Description to add a new Category.</p>
+            <div class="form-controls">
+              <input type="text" class="new-item" id="new-category">
+              <textarea name="category-description" id="category-description" rows="10"></textarea>
+              <button type="submit" class="task-btn btn-new-category">Submit</button>
+            </div>
           </form>
         </div>
         <div class="main">
@@ -46,6 +52,7 @@
             <li><a class="nav-link" href="#task-list">Task List</a></li>
             <li><a class="nav-link" href="#history">History</a></li>
             <li><a class="nav-link" href="#categories">Categories</a></li>
+            <li><a class="nav-link" href="#statistics">Statistics</a></li>
           </ul>
           <div class="section task-list" id="task-list">
             <div class="task-buttons">
@@ -87,24 +94,13 @@
           <div class="section categories hidden" id="categories">
             <div class="new-category"><button class="task-btn">New Category</button></div>
             <div class="category-list">
-                <!-- <div class="category-card">
-                    <h3 class="category-title">Working...!</h3>
-                    <p class="category-description">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
-                    </p>
-                </div>
-                <div class="category-card">
-                    <h3 class="category-title">Work</h3>
-                    <p class="category-description">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
-                    </p>
-                </div>
-                <div class="category-card">
-                    <h3 class="category-title">Work</h3>
-                    <p class="category-description">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
-                    </p>
-                </div> -->
+
+            </div>
+          </div>
+          <div class="section statistics hidden" id="statistics">
+            <div class="statistics-header"><button class="task-btn">Clear Statistics</button></div>
+            <div class="statistics-list">
+
             </div>
           </div>
         </div>

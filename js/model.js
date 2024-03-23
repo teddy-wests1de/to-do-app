@@ -28,11 +28,12 @@ export const state = {
         },
     ],
 }
-export const addItem = function(name, date, time, id, checked='') {
+export const addItem = function(name, date, time, category, id, checked='') {
     const item = {
       name: name,
       date: date,
       time: time,
+      category: category,
       id: id,
       checked,
     }
@@ -41,9 +42,20 @@ export const addItem = function(name, date, time, id, checked='') {
     saveTasks();
 }
 
+export const addCategory = function(id, name, description) {
+    const category = {
+        id: id,
+        name: name,
+        description: description,
+    }
+    state.categories.push(category);
+    saveTasks();
+}
+
 const saveTasks = function() {
     localStorage.setItem('tasks', JSON.stringify(state.taskList));
     localStorage.setItem('history', JSON.stringify(state.taskHistory));
+    localStorage.setItem('categories', JSON.stringify(state.categories));
 }
 const init = function() {
     const taskData = localStorage.getItem('tasks');
@@ -51,6 +63,9 @@ const init = function() {
 
     const historyData = localStorage.getItem('history');
     if(historyData) state.taskHistory = JSON.parse(historyData);
+
+    const categoryData = localStorage.getItem('categories');
+    if(categoryData) state.categories = JSON.parse(categoryData);
 }
 
 export const save = function() {

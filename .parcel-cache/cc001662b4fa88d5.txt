@@ -1,10 +1,11 @@
-17051
+17052
 51/home/elrico/Desktop/new-to-do/to-do-list/style.css1710576783875706161 0
-54/home/elrico/Desktop/new-to-do/to-do-list/js/script.js1711125629520102080 0
-53/home/elrico/Desktop/new-to-do/to-do-list/js/model.js1711125526387671058 0
-70/home/elrico/Desktop/new-to-do/to-do-list/js/Views/listCategoryView.js1711046162217764138 0
+54/home/elrico/Desktop/new-to-do/to-do-list/js/script.js1711197319377861446 0
+53/home/elrico/Desktop/new-to-do/to-do-list/js/model.js1711198109674399095 0
+69/home/elrico/Desktop/new-to-do/to-do-list/js/Views/addCategoryView.js1711197687183621046 0
+70/home/elrico/Desktop/new-to-do/to-do-list/js/Views/listCategoryView.js1711197908764308785 0
 69/home/elrico/Desktop/new-to-do/to-do-list/js/Views/listHistoryView.js1711054922986658068 0
-50/home/elrico/Desktop/new-to-do/to-do-list/js/Views1710576293246919765 1
+50/home/elrico/Desktop/new-to-do/to-do-list/js/Views1711195109339699057 1
 70/home/elrico/Desktop/new-to-do/to-do-list/node_modules/fault/readme.md1710602297698369243 0
 60/home/elrico/Desktop/new-to-do/to-do-list/node_modules/fault1710602297570369870 1
 72/home/elrico/Desktop/new-to-do/to-do-list/node_modules/buffer/index.d.ts1710602298634364660 0
@@ -985,7 +986,7 @@
 64/home/elrico/Desktop/new-to-do/to-do-list/node_modules/nan/tools1710602299722474807 1
 65/home/elrico/Desktop/new-to-do/to-do-list/node_modules/randomfill1710602298086367341 1
 84/home/elrico/Desktop/new-to-do/to-do-list/node_modules/nan/nan_typedarray_contents.h1710602299234399344 0
-65/home/elrico/Desktop/new-to-do/to-do-list/js/Views/addTaskView.js1710664051282398014 0
+65/home/elrico/Desktop/new-to-do/to-do-list/js/Views/addTaskView.js1711195882462837991 0
 76/home/elrico/Desktop/new-to-do/to-do-list/node_modules/nan/nan_object_wrap.h1710602299086376457 0
 72/home/elrico/Desktop/new-to-do/to-do-list/node_modules/nan/doc/errors.md1710602299602456251 0
 73/home/elrico/Desktop/new-to-do/to-do-list/node_modules/nan/doc/methods.md1710602299666466148 0
@@ -1618,7 +1619,7 @@
 110/home/elrico/Desktop/new-to-do/to-do-list/node_modules/postcss-modules/node_modules/postcss/lib/lazy-result.js1710602298918363270 0
 74/home/elrico/Desktop/new-to-do/to-do-list/node_modules/globby/node_modules1710602290722403515 1
 81/home/elrico/Desktop/new-to-do/to-do-list/node_modules/postcss-modules-values/lib1710602297714369165 1
-52/home/elrico/Desktop/new-to-do/to-do-list/style2.css1711127701755929906 0
+52/home/elrico/Desktop/new-to-do/to-do-list/style2.css1711198464472573363 0
 89/home/elrico/Desktop/new-to-do/to-do-list/node_modules/postcss-modules-values/.travis.yml1710602298174366911 0
 85/home/elrico/Desktop/new-to-do/to-do-list/node_modules/browserify-aes/streamCipher.js1710602298738364150 0
 109/home/elrico/Desktop/new-to-do/to-do-list/node_modules/postcss-modules-values/node_modules/chalk/templates.js1710602298226366657 0
@@ -6858,7 +6859,7 @@
 112/home/elrico/Desktop/new-to-do/to-do-list/node_modules/caniuse-lite/data/features/url-scroll-to-text-fragment.js1710602304655233877 0
 93/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/actual/object/define-getter.js1710602302886962546 0
 99/home/elrico/Desktop/new-to-do/to-do-list/node_modules/caniuse-lite/data/features/xml-serializer.js1710602305063296399 0
-57/home/elrico/Desktop/new-to-do/to-do-list/dist/index.html1711127597435032133 0
+57/home/elrico/Desktop/new-to-do/to-do-list/dist/index.html1711198417388735070 0
 95/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/full/array/is-template-object.js1710602311552284190 0
 108/home/elrico/Desktop/new-to-do/to-do-list/node_modules/postcss-modules-scope/node_modules/color-name/test.js1710602297994367793 0
 88/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/actual/array/find-last.js1710602306091453667 0
@@ -8046,7 +8047,7 @@
 91/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/modules/web.set-immediate.js1710602312072362896 0
 107/home/elrico/Desktop/new-to-do/to-do-list/node_modules/jsdom/lib/jsdom/living/generated/HTMLParamElement.js1710602300470590349 0
 89/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/internals/composite-key.js1710602300906657653 0
-68/home/elrico/Desktop/new-to-do/to-do-list/dist/index.fc755277.js.map1711127597443031895 0
+68/home/elrico/Desktop/new-to-do/to-do-list/dist/index.fc755277.js.map1711198110522392692 0
 92/home/elrico/Desktop/new-to-do/to-do-list/node_modules/@parcel/babylon-walk/lib/traverse2.js1710602298854363584 0
 81/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/full/json/parse.js1710602311712308413 0
 85/home/elrico/Desktop/new-to-do/to-do-list/node_modules/lmdb-store/prebuilds/linux-x641710602305583375963 1
@@ -8687,7 +8688,7 @@
 78/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/features/string1710602312024355642 1
 86/home/elrico/Desktop/new-to-do/to-do-list/node_modules/@types/node/globals.global.d.ts1710602299694470478 0
 80/home/elrico/Desktop/new-to-do/to-do-list/node_modules/has-symbols/test/tests.js1710602298602364817 0
-69/home/elrico/Desktop/new-to-do/to-do-list/dist/index.12a19fc9.css.map1711127702527907009 0
+69/home/elrico/Desktop/new-to-do/to-do-list/dist/index.12a19fc9.css.map1711198465356570511 0
 84/home/elrico/Desktop/new-to-do/to-do-list/node_modules/svgo/plugins/removeViewBox.js1710602299898502024 0
 86/home/elrico/Desktop/new-to-do/to-do-list/node_modules/caniuse-lite/data/regions/GF.js1710602302634923782 0
 71/home/elrico/Desktop/new-to-do/to-do-list/node_modules/ncp/package.json1710602295586379597 0
@@ -8779,7 +8780,7 @@
 91/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/full/typed-array/subarray.js1710602311896336270 0
 87/home/elrico/Desktop/new-to-do/to-do-list/node_modules/highlight.js/lib/languages/xl.js1710602301230707606 0
 88/home/elrico/Desktop/new-to-do/to-do-list/node_modules/htmlnano/lib/modules/minifySvg.js1710602299118381406 0
-46/home/elrico/Desktop/new-to-do/to-do-list/dist1711127702527907009 1
+46/home/elrico/Desktop/new-to-do/to-do-list/dist1711198465356570511 1
 89/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/actual/symbol/match-all.js1710602311632296301 0
 86/home/elrico/Desktop/new-to-do/to-do-list/node_modules/caniuse-lite/data/regions/PL.js1710602304247171339 0
 69/home/elrico/Desktop/new-to-do/to-do-list/node_modules/iferr/iferr.js1710602297498370223 0
@@ -14076,7 +14077,7 @@
 82/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/full/object/seal.js1710602311780318708 0
 105/home/elrico/Desktop/new-to-do/to-do-list/node_modules/postcss-merge-longhand/types/lib/insertCloned.d.ts1710602299602456251 0
 74/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/stable/math1710602312028356247 1
-64/home/elrico/Desktop/new-to-do/to-do-list/dist/index.fc755277.js1711127597435032133 0
+64/home/elrico/Desktop/new-to-do/to-do-list/dist/index.fc755277.js1711198110518392721 0
 104/home/elrico/Desktop/new-to-do/to-do-list/node_modules/@babel/types/lib/constants/generated/index.js.map1710602299974513776 0
 85/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/full/regexp/replace.js1710602311768316891 0
 93/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/full/object/define-property.js1710602302914966852 0
@@ -14702,7 +14703,7 @@
 66/home/elrico/Desktop/new-to-do/to-do-list/node_modules/is-nan/test1710602298558365032 1
 83/home/elrico/Desktop/new-to-do/to-do-list/node_modules/set-function-length/env.d.ts1710602298386365874 0
 64/home/elrico/Desktop/new-to-do/to-do-list/node_modules/regex-not1710602297502370203 1
-52/home/elrico/Desktop/new-to-do/to-do-list/index.html1711021578300859877 0
+52/home/elrico/Desktop/new-to-do/to-do-list/index.html1711198416792737245 0
 77/home/elrico/Desktop/new-to-do/to-do-list/node_modules/regex-not/package.json1710602295506379990 0
 73/home/elrico/Desktop/new-to-do/to-do-list/node_modules/regex-not/index.js1710602297482370301 0
 76/home/elrico/Desktop/new-to-do/to-do-list/node_modules/domutils/package.json1710602298726364210 0
@@ -15332,7 +15333,7 @@
 102/home/elrico/Desktop/new-to-do/to-do-list/node_modules/@babel/helper-validator-option/lib/validator.js1710602298202366775 0
 88/home/elrico/Desktop/new-to-do/to-do-list/node_modules/core-js/modules/es.promise.any.js1710602304443201383 0
 102/home/elrico/Desktop/new-to-do/to-do-list/node_modules/@babel/core/lib/transformation/file/generate.js1710602300118536013 0
-65/home/elrico/Desktop/new-to-do/to-do-list/dist/index.12a19fc9.css1711127702519907246 0
+65/home/elrico/Desktop/new-to-do/to-do-list/dist/index.12a19fc9.css1711198465352570524 0
 102/home/elrico/Desktop/new-to-do/to-do-list/node_modules/@babel/core/lib/transformation/file/file.js.map1710602300114535395 0
 104/home/elrico/Desktop/new-to-do/to-do-list/node_modules/@babel/core/lib/transformation/plugin-pass.js.map1710602300222552068 0
 108/home/elrico/Desktop/new-to-do/to-do-list/node_modules/jsdom/lib/jsdom/living/nodes/HTMLImageElement-impl.js1710602303082992673 0

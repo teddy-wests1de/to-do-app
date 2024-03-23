@@ -4,9 +4,10 @@ import addTaskView from './Views/addTaskView.js';
 import listCategoryView from './Views/listCategoryView.js';
 import listTaskView from './Views/listTaskView.js';
 import listHistoryView from './Views/listHistoryView.js';
+import addCategoryView from './Views/addCategoryView.js';
 
 const menu = document.querySelector('.menu');
-const btnCloseForm = document.querySelector('.btn-close-form');
+const btnCloseForm = document.querySelectorAll('.btn-close-form');
 const newTaskModal = document.querySelector('.new-task-modal');
 const sections = document.querySelectorAll('.section');
 const forms = document.querySelectorAll('.form');
@@ -16,9 +17,11 @@ if(module.hot) {
   module.hot.accept();
 }
 
-btnCloseForm.addEventListener('click', function() {
+btnCloseForm.forEach(btn => btn.addEventListener('click', function() {
     newTaskModal.classList.add('hidden');
-})
+    forms[0].classList.add('hidden');
+    forms[1].classList.add('hidden');
+}))
 
 menu.addEventListener('click', function(e) {
   const clicked = e.target.closest('.nav-link');
@@ -34,39 +37,10 @@ menu.addEventListener('click', function(e) {
 
 
 
-const markComplete = function(itemName) {
-  // Find index of clicked checkbox from e.target
-  // const index = model.state.taskList.findIndex(item => item.name === itemName);
-  // // Set Checked on clicked item
-  // model.state.taskList[index].checked = 'checked';
-  
-  // // Use index to remove from tasks list.
-  // const removeItem = model.state.taskList.splice(index, 1);
-  // // Add removed Item to history list
-  // model.state.taskHistory.push(...removeItem);
-  
-  // renderList(model.state.taskHistory, historyList);
-  // taskView.renderList(model.state.taskList, tasks);
-  // model.save();
-  // console.log(model.state.taskList);
-  console.log('Checked...!');
-}
-
 const openNewTaskForm = function() {
   newTaskModal.classList.remove('hidden');
   forms[0].classList.remove('hidden');
 }
-
-// const newTask = function() {
-//   // Get input from textbox on Add new task form.
-//   const name = addTaskView.getItem();
-//   if(!name) return; //If item doesn't exist.
-
-//   model.addItem(name, '15 March 2024', '10:00');
-//   addTaskView.clearInput();
-//   console.log(model.state.taskList);
-//   listTaskView.render(model.state.taskList);
-// }
 
 // ----- Main screen for to do task items ------
 
@@ -79,21 +53,35 @@ const listTasks = function(task) {
 // Add a new to do item
 const addTask = function() {
   const name = addTaskView.getItem();
+  const category = addTaskView.getCategory();
   if(!name) return; //If item doesn't exist.
   const date = new Date().toString().slice(0,15).trim();
   const time = new Date().toString().slice(16,21).trim();
   const id = +(new Date().getTime());
-  model.addItem(name, date, time, id);
+  model.addItem(name, date, time,category, id);
   addTaskView.clearInput();
-  console.log(model.state.taskList);
-  console.log(id);
-  // listTaskView.render(model.state.taskList);
+
   listTasks();
 }
 
 // Check a to do item
-const checkTask = function(task) {
+const checkTask = function(itemName) {
+  // Find index of clicked checkbox from e.target
+  // const index = model.state.taskList.findIndex(item => item.name === itemName);
 
+  // Set Checked on clicked item
+  // model.state.taskList[index].checked = 'checked';
+
+  // // Use index to remove from tasks list.
+  // const removeItem = model.state.taskList.splice(index, 1);
+  // // Add removed Item to history list
+  // model.state.taskHistory.push(...removeItem);
+  
+  // renderList(model.state.taskHistory, historyList);
+  // taskView.renderList(model.state.taskList, tasks);
+  // model.save();
+  // console.log(model.state.taskList);
+  console.log('Checked...!');
 }
 // Edit a to do item
 const editTask = function(task) {
@@ -109,6 +97,7 @@ const removeTask = function(item) {
   const removedItem = model.state.taskList.splice(index,1);
   console.log(removedItem);
   model.state.taskHistory.push(...removedItem);
+  model.save();
   listTasks();
   listHistory();
   console.log(model.state.taskHistory);
@@ -151,10 +140,21 @@ const listCategories = function(categories) {
 }
 
 // Add a new category
-const addCategory = function(category) {
-
+const addCategory = function() {
+  listCategoryView.displayModal('new-task-modal')  
+  listCategoryView.displayModal('new-category-form');
 }
 
+const newCategory = function() {
+  const name = addCategoryView.getGategoryName();
+  const description = addCategoryView.getDescription();
+  const id = +(new Date().getTime());
+
+  model.addCategory(id, name, description);
+  listCategories();
+  // addCategoryView.clearInput();
+  console.log(model.state.categories);
+}
 // Remove a category
 const removeCategory = function(category) {
 
@@ -172,6 +172,9 @@ const init = function() {
   listTaskView.addHandlerRemoveItem(removeTask);
   listTaskView.addHandlerRemoveAll(removeAllTasks);
   addTaskView.addHandlerNewTask(addTask);
+  addTaskView.renderCategories(model.state.categories);
+  addCategoryView.addHandlerNewCategory(newCategory);
   listHistoryView.addHandlerClearHistory(clearHistory);
+  listCategoryView.addHandlerNewCategory(addCategory);
 }
 init();

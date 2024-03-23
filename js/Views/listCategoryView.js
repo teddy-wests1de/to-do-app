@@ -2,18 +2,19 @@ class CategoryView {
     _parentEl = document.querySelector('.category-list');
     _btnNewCategory = document.querySelector('.new-category button')
     _categoryList = document.querySelector('.category-list');
-    
+
     clear() {
         this._parentEl.innerHTML = '';
     }
     render(array) {
         this.clear();
+        this._parentEl.innerHTML = '';
         array.map(d => {
             const markup = `
                 <div class="category-card">
                 <h3 class="category-title">${d.name}</h3>
                     <p class="category-description">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
+                        ${d.description}
                     </p>
                 </div>
             `;
@@ -23,18 +24,15 @@ class CategoryView {
 
    
     addHandlerNewCategory(handler) {
-        this._newCategory.addEventListener('click', handler);
+        this._btnNewCategory.addEventListener('click', handler);
     }
-    // getHtml() {
-    //     return `
-    //     <div class="category-card">
-    //         <h3 class="category-title">Working...!</h3>
-    //         <p class="category-description">
-    //             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro suscipit aliquam, quisquam delectus facere deserunt eaque ea placeat nemo et, vel nisi consequatur error quasi illum doloribus quas! Unde, eligendi.
-    //         </p>
-    //     </div>
-    //     `
-    // }
+
+
+    displayModal(modal) {
+        document.querySelector(`.${modal}`).classList.remove('hidden');
+        console.log(`.${modal}`);
+    }
+
 }
 
 export default new CategoryView();
